@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			}
 		}else {
 			req.setAttribute("errorMessage", "ユーザーIDまたはパスワードが不正です。またはアカウントが無効です。");
-			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
 			rd.forward(req, resq);
 		}
 	}
