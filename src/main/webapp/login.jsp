@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>勤怠管理システム - ログイン</title>
-		<link rel="stylesheet"href="${pageContext.request.contextPath}/style.css"> 
+		<link rel="stylesheet"href="style.css"> 
 	</head>
 	<body>
 		<div class="container">
