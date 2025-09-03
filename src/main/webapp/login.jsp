@@ -10,9 +10,10 @@
 	</head>
 	<body>
 		<div class="container">
+		<h1>勤怠管理システム</h1>
 			<form action ="login" method="post">
 				<p>
-					<label for="userame">ユーザーID:</label>
+					<label for="username">ユーザーID:</label>
 					<input type="text" id="username" name="username" required>
 				</p>
 				<p>

@@ -77,7 +77,7 @@ public class UserServlet extends HttpServlet {
 			}
 		} else if("update".equals(action)) {
 			String username = req.getParameter("username");
-			String role = req.getParameter("rple");
+			String role = req.getParameter("role");
 			boolean enabled = req.getParameter("enabled") != null;
 			
 			User existingUser = userDAO.findByUsername(username);
