@@ -67,22 +67,24 @@ public class UserServlet extends HttpServlet {
 		
 		if ("add".equals(action)) {
 			String username = req.getParameter("username");
+			String email = req.getParameter("email");
 			String password = req.getParameter("password");
 			String role = req.getParameter("role");
 			if (userDAO.findByUsername(username) == null) {
-				userDAO.addUser(new User(username,UserDAO.hashPassword(password), role));
+				userDAO.addUser(new User(username, email, UserDAO.hashPassword(password), role));
 				session.setAttribute("successMessage", "ユーザーを追加しました");
 			}else {
 				req.setAttribute("errorMessage", "ユーザーIDは既に存在します");
 			}
 		} else if("update".equals(action)) {
 			String username = req.getParameter("username");
+			String email = req.getParameter("email");
 			String role = req.getParameter("role");
 			boolean enabled = req.getParameter("enabled") != null;
 			
 			User existingUser = userDAO.findByUsername(username);
 			if (existingUser != null) {
-				userDAO.updateUser(new User(username, existingUser.getPassword(), role, enabled));
+				userDAO.updateUser(new User(username, email,existingUser.getPassword(), role, enabled));
 				session.setAttribute("successMessage", "ユーザ情報を更新しました");
 			}
 		} else if ("delete".equals(action)) {

@@ -13,9 +13,9 @@ public class UserDAO{
 	
 	static {
 		// sample users with hashed passwords
-		users.put("employeel", new User("employeel", hashPassword("password"), "employee", true));
-		users.put("admin1", new User("admin1", hashPassword("adminpass"), "admin", true));
-		users.put("employeel2", new User("employeel2", hashPassword("password"), "employee", true));
+		users.put("employeel", new User("employeel", "employee1@example.com", hashPassword("password"), "employee", true));
+		users.put("admin1", new User("admin1",  "admin@example.com", hashPassword("adminpass"), "admin", true));
+		users.put("employeel2", new User("employeel2",  "employee2@example.com", hashPassword("password"), "employee", true));
 	}
 	
 	public User findByUsername(String username) {
@@ -39,6 +39,10 @@ public class UserDAO{
 		users.put(user.getUsername(), user);
 	}
 	
+	public void updateEmail(User email) {
+		users.put(email.getEmail(), email);
+	}
+	
 	public void deleteUser(String username) {
 		users.remove(username);
 	}
@@ -46,14 +50,14 @@ public class UserDAO{
 	public void resetPassword(String username, String newPassword) {
 		User user = users.get(username);
 		if (user != null) {
-			users.put(username, new User(user.getUsername(), hashPassword(newPassword), user.getRole(), user.isEnabled()));
+			users.put(username, new User(user.getUsername(), hashPassword(newPassword), user.getRole(), user.getEmail(), user.isEnabled()));
 		}
 	}
 	
 	public void toggleUserEnabled(String username, boolean enabled) {
 		User user = users.get(username);
 		if(user != null) {
-			users.put(username, new User(user.getUsername(), user.getPassword(), user.getRole(),enabled));
+			users.put(username, new User(user.getUsername(), user.getPassword(), user.getRole(), user.getEmail(),enabled));
 		}
 	}
 	

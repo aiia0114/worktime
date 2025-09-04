@@ -32,6 +32,9 @@
 			<label for="username">ユーザーID:</label>
 			<input type="text" id="username" name="username" value="<c:out value="${ userToEdit.username }"/>" <c:if test="${ userToEdit != null }">readonly</c:if>required>
 			
+			<label for="email">メールアドレス:</label>
+			<input type="text" id="email" name="email" value="<c:out value="${ userToEdit.email }"/>" <c:if test="${ userToEdit != null }">readonly</c:if>required>
+			
 			<label for="password">パスワード:</label>
 			<input type="password" id="password" name="password" <c:if test="${ userToEdit == null }">required</c:if>>
 			<c:if test="${ userToEdit != null }">
@@ -43,6 +46,7 @@
 				<option value="employee" <c:if test="${ userToEdit.role == 'employee' }">selected</c:if>>従業員</option>
 				<option value="admin" <c:if test="${ userToEdit.role == 'admin' }">selected</c:if>>管理者</option>
 			</select>
+			
 			
 			<p>
 				<label for="enabled">アカウント有効:</label>

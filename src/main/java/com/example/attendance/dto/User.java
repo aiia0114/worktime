@@ -4,16 +4,18 @@ public class User {
 	private String username;
 	private String password;
 	private String role;
+	private String email;
 	private boolean enabled;  // new field
 	
-	public User(String username, String password, String role) {
-		this(username, password, role, true); // Default to enabled デフォルトでtureにする(boolean)
+	public User(String username,  String email, String password, String role) {
+		this(username, password, role, email, true); // Default to enabled デフォルトでtureにする(boolean)
 	}
 	
-	public User(String username, String password, String role, boolean enabled) {
+	public User(String username, String email, String password, String role,  boolean enabled) {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		this.email = email;
 		this.enabled = enabled;
 	}
 	
@@ -27,6 +29,10 @@ public class User {
 	
 	public String getRole() {
 		return role;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 	
 	public boolean isEnabled() {
